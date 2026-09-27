@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.4.1" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Language="en-US" Id="cosmoteer-rules-language" Version="2.4.1" Publisher="zahran" />
+    <DisplayName>Cosmoteer Rules Language</DisplayName>
+    <Description xml:space="preserve">Cosmoteer .rules/.rule language mode with categorized syntax highlighting and an editable custom-word color file.</Description>
+    <Tags>cosmoteer rules syntax highlighting language mode</Tags>
+    <Categories>Programming Languages</Categories>
+    <GalleryFlags>Public</GalleryFlags>
+    <Properties><Property Id="Microsoft.VisualStudio.Code.Engine" Value=">=1.85.0" /></Properties>
+  </Metadata>
+  <Installation><InstallationTarget Id="Microsoft.VisualStudio.Code" Version="1.85.0" /></Installation>
+  <Dependencies />
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.Code.Manifest" Path="extension/package.json" Addressable="true" />
+  </Assets>
+</PackageManifest>

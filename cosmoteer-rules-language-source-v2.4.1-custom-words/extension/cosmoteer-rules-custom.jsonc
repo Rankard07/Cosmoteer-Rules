@@ -1,0 +1,35 @@
+{
+  // ============================================================
+  // COSMOTEER RULES — CUSTOM / OVERRIDE WORDS
+  // ============================================================
+  // customWords  : words that are not already handled by the grammar.
+  // overrideWords : existing grammar words whose displayed style you want
+  //                 to override (for example Action or Actions).
+  //
+  // words           : one word or several aliases.
+  // caseInsensitive : true makes the match case-insensitive.
+  //
+  // nonComment      : style used outside // and /* */ comments.
+  // comment         : style used inside // and /* */ comments.
+  // color            : six-digit VS Code hex color, e.g. #61C4E8.
+  // fontStyle        : "", "bold", "italic", "underline",
+  //                    "strikethrough", or combinations such as "bold italic".
+  //
+  // Root-level color/fontStyle are also supported for compatibility and
+  // apply the same style to both contexts.
+
+  "customWords": [
+    // Add new words below.
+  ],
+
+  "overrideWords": [
+    // Add existing grammar words below.
+    // Example:
+    // {
+    //   "words": ["Action", "Actions"],
+    //   "caseInsensitive": true,
+    //   "nonComment": { "color": "#FF79B0", "fontStyle": "bold" },
+    //   "comment": { "color": "#FF79B0", "fontStyle": "bold" }
+    // }
+  ]
+}

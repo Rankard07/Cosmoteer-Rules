@@ -1,0 +1,415 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Cosmoteer Rules",
+  "scopeName": "source.cosmoteer-rules",
+  "fileTypes": [
+    "rules",
+    "rule"
+  ],
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#paths"
+    },
+    {
+      "include": "#references"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#constants"
+    },
+    {
+      "include": "#punctuation"
+    },
+    {
+      "include": "#actions-and-common-keys"
+    },
+    {
+      "include": "#functions"
+    },
+    {
+      "include": "#keys"
+    },
+    {
+      "include": "#identifiers"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.cosmoteer-rules",
+          "begin": "//",
+          "end": "$",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.begin.cosmoteer-rules"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#comment-inner-highlights"
+            }
+          ]
+        },
+        {
+          "name": "comment.block.cosmoteer-rules",
+          "begin": "/\\*",
+          "end": "\\*/",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.begin.cosmoteer-rules"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.comment.end.cosmoteer-rules"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#comment-inner-highlights"
+            }
+          ]
+        }
+      ]
+    },
+    "comment-inner-highlights": {
+      "patterns": [
+        {
+          "name": "markup.bold.cosmoteer-rules",
+          "match": "(?<!\\*)\\*\\*(?!\\s)([^*\\r\\n]+)\\*\\*(?!\\*)"
+        },
+        {
+          "name": "markup.italic.cosmoteer-rules",
+          "match": "(?<!\\*)\\*(?!\\s|\\*)([^*\\r\\n]+)\\*(?!\\*)"
+        },
+        {
+          "name": "markup.italic.slash.cosmoteer-rules",
+          "match": "(?<![\\w:/])/(?![/\\s])(?:[^/\\r\\n]|/(?!/))+/(?=\\s|[.,;:!?)]|$)"
+        },
+        {
+          "name": "markup.underline.cosmoteer-rules",
+          "match": "__(?!\\s)[^_\\r\\n]+__"
+        },
+        {
+          "name": "markup.strikethrough.cosmoteer-rules",
+          "match": "~~(?!\\s)[^~\\r\\n]+~~"
+        },
+        {
+          "name": "markup.inline.code.cosmoteer-rules",
+          "match": "`[^`\\r\\n]+`"
+        },
+        {
+          "name": "markup.important.cosmoteer-rules",
+          "match": "!!(?!\\s)[^!\\r\\n]+!!"
+        },
+        {
+          "name": "markup.highlight.cosmoteer-rules",
+          "match": "==(?!\\s)[^=\\r\\n]+=="
+        },
+        {
+          "name": "meta.parenthesis.cosmoteer-rules",
+          "begin": "\\(",
+          "end": "\\)",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.parenthesis.begin.cosmoteer-rules"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.parenthesis.end.cosmoteer-rules"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#comment-inner-highlights"
+            }
+          ]
+        },
+        {
+          "name": "meta.brackets.cosmoteer-rules",
+          "begin": "\\[",
+          "end": "\\]",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.brackets.begin.cosmoteer-rules"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.brackets.end.cosmoteer-rules"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#comment-inner-highlights"
+            }
+          ]
+        },
+        {
+          "name": "meta.braces.cosmoteer-rules",
+          "begin": "\\{",
+          "end": "\\}",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.braces.begin.cosmoteer-rules"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.braces.end.cosmoteer-rules"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#comment-inner-highlights"
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.double.comment.cosmoteer-rules",
+          "begin": "\\\"",
+          "end": "\\\"",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.begin.cosmoteer-rules"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.end.cosmoteer-rules"
+            }
+          },
+          "patterns": [
+            {
+              "name": "constant.character.escape.cosmoteer-rules",
+              "match": "\\\\\\\\(?:[\\\\\\\"nrt]|u[0-9A-Fa-f]{4})"
+            }
+          ]
+        },
+        {
+          "name": "string.unquoted.path.comment.cosmoteer-rules",
+          "match": "(?:&)?<[^>\\r\\n]+>"
+        },
+        {
+          "name": "variable.other.reference.comment.cosmoteer-rules",
+          "match": "&(?:[A-Za-z_][A-Za-z0-9_.-]*|<[^>\\r\\n]+>)"
+        },
+        {
+          "name": "constant.language.boolean.comment.cosmoteer-rules",
+          "match": "\\b(?:true|false)\\b"
+        },
+        {
+          "name": "constant.language.null.comment.cosmoteer-rules",
+          "match": "\\b(?:null|nil)\\b"
+        },
+        {
+          "name": "support.function.math.comment.cosmoteer-rules",
+          "match": "\\b(?:abs|acos|asin|atan|atan2|ceil|cos|exp|floor|log|log10|max|min|pow|round|sin|sqrt|tan)\\b(?=\\s*\\()"
+        },
+        {
+          "name": "constant.numeric.float.comment.cosmoteer-rules",
+          "match": "(?<![A-Za-z0-9_.])[-+]?(?:\\d+\\.\\d*|\\.\\d+)(?:[eE][-+]?\\d+)?(?:%|[A-Za-z]+)?"
+        },
+        {
+          "name": "constant.numeric.integer.comment.cosmoteer-rules",
+          "match": "(?<![A-Za-z0-9_.])[-+]?\\d+(?:%|[A-Za-z]+)?"
+        },
+        {
+          "name": "keyword.control.comment.cosmoteer-rules",
+          "match": "(?i:\\b(?:Add|AddTo|Remove|RemoveFrom|Override|Overrides|OverrideIn|CreateIfNotExisting|IgnoreIfNotExisting|Action|Actions)\\b)"
+        },
+        {
+          "name": "entity.name.type.comment.cosmoteer-rules",
+          "match": "\\b(?:Part|Projectile|Resource|Buff|Proxy|Fire|ExternalWall|TextSprite|Technology|ModInfo|ModShipLibrary|Component|Graphics|Effect|Weapon|Beam|Engine|Thruster|Command|Module|Toggle|MultiToggle)\\b"
+        },
+        {
+          "name": "variable.other.property.comment.cosmoteer-rules",
+          "match": "\\b(?:ID|Name|Author|Logo|Description|StringsFolder|ShipLibraries|NameKey|IconNameKey|Icon|Texture|DescriptionKey|Resources|MaxHealth|InitialPenetrationResistance|IsOperational|OperationalToggle|TypeCategories|SignificanceToggle|Size|PhysicalRect|SaveRect|SelectionPriority|SelectionTypeByRotation|ProhibitAbove|AllowedDoorLocations|OtherIDs|EditorGroup|Action|AddTo|ToAdd|ManyToAdd|SortOrder)\\b(?=\\s*(?:=|:|\\b))"
+        },
+        {
+          "name": "keyword.operator.arrow.comment.cosmoteer-rules",
+          "match": "=>|->"
+        },
+        {
+          "name": "keyword.operator.comparison.comment.cosmoteer-rules",
+          "match": "==|!=|<=|>="
+        },
+        {
+          "name": "keyword.operator.assignment.comment.cosmoteer-rules",
+          "match": "=|:"
+        },
+        {
+          "name": "keyword.operator.arithmetic.comment.cosmoteer-rules",
+          "match": "\\+|-|\\*|/|%"
+        },
+        {
+          "name": "punctuation.separator.comment.cosmoteer-rules",
+          "match": "[,;]"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.cosmoteer-rules",
+          "begin": "\\\"",
+          "end": "\\\"",
+          "beginCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.begin.cosmoteer-rules"
+            }
+          },
+          "endCaptures": {
+            "0": {
+              "name": "punctuation.definition.string.end.cosmoteer-rules"
+            }
+          },
+          "patterns": [
+            {
+              "name": "constant.character.escape.cosmoteer-rules",
+              "match": "\\\\(?:[\\\\\\\"nrt]|u[0-9A-Fa-f]{4})"
+            }
+          ]
+        }
+      ]
+    },
+    "paths": {
+      "patterns": [
+        {
+          "name": "string.unquoted.path.cosmoteer-rules",
+          "match": "(?<![\\w-])(?:&)?<[^>\\r\\n]+>"
+        }
+      ]
+    },
+    "references": {
+      "patterns": [
+        {
+          "name": "variable.other.reference.cosmoteer-rules",
+          "match": "&(?:[A-Za-z_][A-Za-z0-9_.-]*|<[^>\\r\\n]+>)"
+        },
+        {
+          "name": "keyword.operator.reference.cosmoteer-rules",
+          "match": "&"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.float.cosmoteer-rules",
+          "match": "(?<![A-Za-z0-9_.])[-+]?(?:\\d+\\.\\d*|\\.\\d+)(?:[eE][-+]?\\d+)?(?:%|[A-Za-z]+)?"
+        },
+        {
+          "name": "constant.numeric.integer.cosmoteer-rules",
+          "match": "(?<![A-Za-z0-9_.])[-+]?\\d+(?:%|[A-Za-z]+)?"
+        }
+      ]
+    },
+    "constants": {
+      "patterns": [
+        {
+          "name": "constant.language.boolean.cosmoteer-rules",
+          "match": "\\b(?:true|false)\\b"
+        },
+        {
+          "name": "constant.language.null.cosmoteer-rules",
+          "match": "\\b(?:null|nil)\\b"
+        }
+      ]
+    },
+    "punctuation": {
+      "patterns": [
+        {
+          "name": "keyword.operator.arrow.cosmoteer-rules",
+          "match": "=>|->"
+        },
+        {
+          "name": "keyword.operator.comparison.cosmoteer-rules",
+          "match": "==|!=|<=|>="
+        },
+        {
+          "name": "keyword.operator.assignment.cosmoteer-rules",
+          "match": "=|:"
+        },
+        {
+          "name": "keyword.operator.arithmetic.cosmoteer-rules",
+          "match": "\\+|-|\\*|/|%"
+        },
+        {
+          "name": "punctuation.separator.cosmoteer-rules",
+          "match": "[,;]"
+        },
+        {
+          "name": "punctuation.section.group.begin.cosmoteer-rules",
+          "match": "\\{"
+        },
+        {
+          "name": "punctuation.section.group.end.cosmoteer-rules",
+          "match": "\\}"
+        },
+        {
+          "name": "punctuation.section.array.begin.cosmoteer-rules",
+          "match": "\\["
+        },
+        {
+          "name": "punctuation.section.array.end.cosmoteer-rules",
+          "match": "\\]"
+        }
+      ]
+    },
+    "actions-and-common-keys": {
+      "patterns": [
+        {
+          "name": "keyword.control.cosmoteer-rules",
+          "match": "(?i:\\b(?:Add|AddTo|Remove|RemoveFrom|Override|Overrides|OverrideIn|CreateIfNotExisting|IgnoreIfNotExisting|Action|Actions)\\b)"
+        },
+        {
+          "name": "entity.name.type.cosmoteer-rules",
+          "match": "\\b(?:Part|Projectile|Resource|Buff|Proxy|Fire|ExternalWall|TextSprite|Technology|ModInfo|ModShipLibrary)\\b"
+        },
+        {
+          "name": "variable.other.property.cosmoteer-rules",
+          "match": "\\b(?:ID|Name|Author|Logo|Description|StringsFolder|ShipLibraries|NameKey|IsBuildable|MaxResources|StartingMoney|MoneyRewardFactor|FameRewardFactor)\\b(?=\\s*(?:=|:))"
+        }
+      ]
+    },
+    "functions": {
+      "patterns": [
+        {
+          "name": "support.function.math.cosmoteer-rules",
+          "match": "\\b(?:abs|acos|asin|atan|atan2|ceil|cos|exp|floor|log|log10|max|min|pow|round|sin|sqrt|tan)\\b(?=\\s*\\()"
+        }
+      ]
+    },
+    "keys": {
+      "patterns": [
+        {
+          "name": "entity.other.attribute-name.cosmoteer-rules",
+          "match": "(?<![.&])\\b[A-Za-z_][A-Za-z0-9_.-]*(?=\\s*(?:=|:))"
+        }
+      ]
+    },
+    "identifiers": {
+      "patterns": [
+        {
+          "name": "variable.other.constant.cosmoteer-rules",
+          "match": "(?<![A-Za-z0-9_.-])(?:[A-Z][A-Za-z0-9_.-]*)(?![A-Za-z0-9_.-])"
+        },
+        {
+          "name": "variable.other.cosmoteer-rules",
+          "match": "(?<![A-Za-z0-9_.-])(?:[A-Za-z_][A-Za-z0-9_.-]*)(?![A-Za-z0-9_.-])"
+        }
+      ]
+    }
+  }
+}

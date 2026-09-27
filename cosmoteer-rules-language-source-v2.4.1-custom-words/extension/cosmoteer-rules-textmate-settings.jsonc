@@ -1,0 +1,341 @@
+// ============================================================
+// COSMOTEER RULES — TEXTMATE COLOR SETTINGS
+// ============================================================
+// This is the editable source of TextMate colors for this extension.
+// The extension copies it to its global storage on first activation,
+// then automatically applies changes to the active user/workspace editor.tokenColorCustomizations target.
+// The extension manages only TextMate rules whose scopes belong to Cosmoteer Rules.
+// Use: Command Palette -> Cosmoteer Rules: Open TextMate Color Settings
+// ============================================================
+
+{
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      // ============================================================
+      // COSMOTEER RULES — TEXTMATE COLOR GUIDE
+      // ============================================================
+      // Change the "foreground" value to recolor a scope.
+      // Change "fontStyle" to: "", "italic", "bold", "underline",
+      // "strikethrough", or combinations such as "bold italic".
+      //
+      // Example:
+      // "scope": "markup.italic.cosmoteer-rules"
+      // changes the color/style of *italic* inside comments.
+      //
+      // You can put this entire object into VS Code/Windsurf settings.json.
+      // If a scope appears both here and in another TextMate rule, the
+      // more specific/later matching rule can override the earlier one.
+
+      // ------------------------------------------------------------
+      // BASE FILE TEXT
+      // ------------------------------------------------------------
+      // Scope: source.cosmoteer-rules
+      {
+        "scope": "source.cosmoteer-rules",
+        "settings": { "foreground": "#D7DEE8" }
+      },
+
+      // ------------------------------------------------------------
+      // COMMENTS
+      // ------------------------------------------------------------
+      // Scope: comment.line.double-slash.cosmoteer-rules
+      // Scope: comment.block.cosmoteer-rules
+      {
+        "scope": [
+          "comment.line.double-slash.cosmoteer-rules",
+          "comment.block.cosmoteer-rules"
+        ],
+        "settings": { "foreground": "#6F7C8C", "fontStyle": "italic" }
+      },
+
+      // ------------------------------------------------------------
+      // NORMAL RULE SYNTAX
+      // ------------------------------------------------------------
+      // Property / key:
+      //   entity.other.attribute-name.cosmoteer-rules
+      //   variable.other.property.cosmoteer-rules
+      // Example: NameKey, IconNameKey, DescriptionKey, Resources
+      {
+        "scope": [
+          "entity.other.attribute-name.cosmoteer-rules",
+          "variable.other.property.cosmoteer-rules"
+        ],
+        "settings": { "foreground": "#82AAFF" }
+      },
+
+      // Uppercase constants / identifiers:
+      //   variable.other.constant.cosmoteer-rules
+      // Example: OVERCLOCK
+      {
+        "scope": "variable.other.constant.cosmoteer-rules",
+        "settings": { "foreground": "#61C4E8", "fontStyle": "bold" }
+      },
+
+      // Named syntax / type:
+      //   entity.name.type.cosmoteer-rules
+      // Example: Part, Component, Resource, Type
+      {
+        "scope": "entity.name.type.cosmoteer-rules",
+        "settings": { "foreground": "#C792EA", "fontStyle": "bold" }
+      },
+
+      // String:
+      //   string.quoted.double.cosmoteer-rules
+      // Example: "Parts/LaserBlasterSmall"
+      {
+        "scope": "string.quoted.double.cosmoteer-rules",
+        "settings": { "foreground": "#C9E2FF" }
+      },
+
+      // Path:
+      //   string.unquoted.path.cosmoteer-rules
+      // Example: <../Data/...>
+      {
+        "scope": "string.unquoted.path.cosmoteer-rules",
+        "settings": { "foreground": "#61C4E8" }
+      },
+
+      // Reference:
+      //   variable.other.reference.cosmoteer-rules
+      // Example: &BatteryStorage
+      {
+        "scope": "variable.other.reference.cosmoteer-rules",
+        "settings": { "foreground": "#C792EA" }
+      },
+
+      // Number:
+      //   constant.numeric.integer.cosmoteer-rules
+      //   constant.numeric.float.cosmoteer-rules
+      // Example: 100, 2.5
+      {
+        "scope": [
+          "constant.numeric.integer.cosmoteer-rules",
+          "constant.numeric.float.cosmoteer-rules"
+        ],
+        "settings": { "foreground": "#F28FB3" }
+      },
+
+      // Boolean:
+      //   constant.language.boolean.cosmoteer-rules
+      // Example: true, false
+      {
+        "scope": "constant.language.boolean.cosmoteer-rules",
+        "settings": { "foreground": "#56C5D0", "fontStyle": "bold" }
+      },
+
+      // Math functions:
+      //   support.function.math.cosmoteer-rules
+      // Example: sqrt(100), ceil(2.5)
+      {
+        "scope": "support.function.math.cosmoteer-rules",
+        "settings": { "foreground": "#4FC1E9" }
+      },
+
+      // ------------------------------------------------------------
+      // COMMENT CONTENT — SAME IDEAS, BUT INSIDE // ...
+      // ------------------------------------------------------------
+      // Property inside comment:
+      //   variable.other.property.comment.cosmoteer-rules
+      {
+        "scope": "variable.other.property.comment.cosmoteer-rules",
+        "settings": { "foreground": "#82AAFF" }
+      },
+
+      // Named syntax inside comment:
+      //   entity.name.type.comment.cosmoteer-rules
+      // Example: Part, Component, Resource, Type
+      {
+        "scope": "entity.name.type.comment.cosmoteer-rules",
+        "settings": { "foreground": "#C792EA", "fontStyle": "bold" }
+      },
+
+      // String inside comment:
+      //   string.quoted.double.comment.cosmoteer-rules
+      {
+        "scope": "string.quoted.double.comment.cosmoteer-rules",
+        "settings": { "foreground": "#C9E2FF" }
+      },
+
+      // Reference inside comment:
+      //   variable.other.reference.comment.cosmoteer-rules
+      {
+        "scope": "variable.other.reference.comment.cosmoteer-rules",
+        "settings": { "foreground": "#C792EA" }
+      },
+
+      // Number inside comment:
+      //   constant.numeric.integer.comment.cosmoteer-rules
+      //   constant.numeric.float.comment.cosmoteer-rules
+      {
+        "scope": [
+          "constant.numeric.integer.comment.cosmoteer-rules",
+          "constant.numeric.float.comment.cosmoteer-rules"
+        ],
+        "settings": { "foreground": "#F28FB3" }
+      },
+
+      // ------------------------------------------------------------
+      // COMMENT MARKUP
+      // ------------------------------------------------------------
+      // *italic*
+      // Scope: markup.italic.cosmoteer-rules
+      // Also available: markup.italic.content.cosmoteer-rules
+      //                punctuation.definition.italic.begin.cosmoteer-rules
+      //                punctuation.definition.italic.end.cosmoteer-rules
+      {
+        "scope": [
+          "markup.italic.cosmoteer-rules",
+          "markup.italic.content.cosmoteer-rules",
+          "punctuation.definition.italic.begin.cosmoteer-rules",
+          "punctuation.definition.italic.end.cosmoteer-rules"
+        ],
+        "settings": { "foreground": "#8B1E2D", "fontStyle": "italic" }
+      },
+
+      // **bold**
+      // Scope: markup.bold.cosmoteer-rules
+      {
+        "scope": [
+          "markup.bold.cosmoteer-rules",
+          "markup.bold.content.cosmoteer-rules",
+          "punctuation.definition.bold.begin.cosmoteer-rules",
+          "punctuation.definition.bold.end.cosmoteer-rules"
+        ],
+        "settings": { "foreground": "#8B1E2D", "fontStyle": "bold" }
+      },
+
+      // /italic slash/
+      // Scope: markup.italic.slash.cosmoteer-rules
+      {
+        "scope": "markup.italic.slash.cosmoteer-rules",
+        "settings": { "foreground": "#61C4E8", "fontStyle": "italic" }
+      },
+
+      // __underlined text__
+      // Scope: markup.underline.cosmoteer-rules
+      {
+        "scope": "markup.underline.cosmoteer-rules",
+        "settings": { "foreground": "#B9A5E8", "fontStyle": "underline" }
+      },
+
+      // ~~strikethrough text~~
+      // Scope: markup.strikethrough.cosmoteer-rules
+      {
+        "scope": "markup.strikethrough.cosmoteer-rules",
+        "settings": { "foreground": "#D56A9B", "fontStyle": "strikethrough" }
+      },
+
+      // `inline code`
+      // Scope: markup.inline.code.cosmoteer-rules
+      {
+        "scope": "markup.inline.code.cosmoteer-rules",
+        "settings": { "foreground": "#61C4E8", "fontStyle": "" }
+      },
+
+      // !!important!!
+      // Scope: markup.important.cosmoteer-rules
+      {
+        "scope": "markup.important.cosmoteer-rules",
+        "settings": { "foreground": "#A63D40", "fontStyle": "bold" }
+      },
+
+      // ==highlight==
+      // Scope: markup.highlight.cosmoteer-rules
+      {
+        "scope": "markup.highlight.cosmoteer-rules",
+        "settings": { "foreground": "#C792EA", "fontStyle": "bold" }
+      },
+
+      // ------------------------------------------------------------
+      // ACTION / CONTROL WORDS
+      // ------------------------------------------------------------
+      // Action keywords are explicitly pink both outside and inside comments.
+      // This keeps Action, ACTION, Add, AddTo, etc. visually distinct from operators.
+      {
+        "scope": "keyword.control.cosmoteer-rules",
+        "settings": { "foreground": "#FF79B0", "fontStyle": "bold" }
+      },
+      {
+        "scope": "keyword.control.comment.cosmoteer-rules",
+        "settings": { "foreground": "#FF79B0", "fontStyle": "bold" }
+      },
+
+      // ------------------------------------------------------------
+      // OPERATORS
+      // ------------------------------------------------------------
+      // Assignment: = and :
+      // Scope: keyword.operator.assignment.cosmoteer-rules
+      {
+        "scope": "keyword.operator.assignment.cosmoteer-rules",
+        "settings": { "foreground": "#89DDFF", "fontStyle": "bold" }
+      },
+
+      // Reference: &
+      // Scope: keyword.operator.reference.cosmoteer-rules
+      {
+        "scope": "keyword.operator.reference.cosmoteer-rules",
+        "settings": { "foreground": "#89DDFF", "fontStyle": "bold" }
+      },
+
+      // Arithmetic: + - * / %
+      // Scope: keyword.operator.arithmetic.cosmoteer-rules
+      {
+        "scope": "keyword.operator.arithmetic.cosmoteer-rules",
+        "settings": { "foreground": "#FF6B6B", "fontStyle": "bold" }
+      },
+
+      // Comparison: == != < > <= >=
+      // Scope: keyword.operator.comparison.cosmoteer-rules
+      {
+        "scope": "keyword.operator.comparison.cosmoteer-rules",
+        "settings": { "foreground": "#C792EA", "fontStyle": "bold" }
+      },
+
+      // Arrow: -> =>
+      // Scope: keyword.operator.arrow.cosmoteer-rules
+      {
+        "scope": "keyword.operator.arrow.cosmoteer-rules",
+        "settings": { "foreground": "#61C4E8", "fontStyle": "bold" }
+      },
+
+      // Separators: , ;
+      // Scope: punctuation.separator.cosmoteer-rules
+      {
+        "scope": "punctuation.separator.cosmoteer-rules",
+        "settings": { "foreground": "#8D9AAA" }
+      },
+
+      // The same operator scopes are also emitted inside comments:
+      // keyword.operator.assignment.comment.cosmoteer-rules
+      // keyword.operator.reference.comment.cosmoteer-rules
+      // keyword.operator.arithmetic.comment.cosmoteer-rules
+      // keyword.operator.comparison.comment.cosmoteer-rules
+      // keyword.operator.arrow.comment.cosmoteer-rules
+      // punctuation.separator.comment.cosmoteer-rules
+      {
+        "scope": "keyword.operator.assignment.comment.cosmoteer-rules",
+        "settings": { "foreground": "#89DDFF", "fontStyle": "bold" }
+      },
+      {
+        "scope": "keyword.operator.reference.comment.cosmoteer-rules",
+        "settings": { "foreground": "#89DDFF", "fontStyle": "bold" }
+      },
+      {
+        "scope": "keyword.operator.arithmetic.comment.cosmoteer-rules",
+        "settings": { "foreground": "#FF6B6B", "fontStyle": "bold" }
+      },
+      {
+        "scope": "keyword.operator.comparison.comment.cosmoteer-rules",
+        "settings": { "foreground": "#C792EA", "fontStyle": "bold" }
+      },
+      {
+        "scope": "keyword.operator.arrow.comment.cosmoteer-rules",
+        "settings": { "foreground": "#61C4E8", "fontStyle": "bold" }
+      },
+      {
+        "scope": "punctuation.separator.comment.cosmoteer-rules",
+        "settings": { "foreground": "#8D9AAA" }
+      }
+    ]
+  }
+}

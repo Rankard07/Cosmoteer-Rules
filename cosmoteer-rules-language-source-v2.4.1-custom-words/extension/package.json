@@ -1,0 +1,59 @@
+{
+  "name": "cosmoteer-rules-language",
+  "displayName": "Cosmoteer Rules Language",
+  "description": "Cosmoteer .rules/.rule language mode with syntax highlighting plus editable custom-word and TextMate color configuration files.",
+  "version": "2.4.1",
+  "publisher": "zahran",
+  "license": "MIT",
+  "engines": {
+    "vscode": ">=1.85.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "cosmoteer-rules",
+        "aliases": [
+          "Cosmoteer Rules",
+          "cosmoteer-rules",
+          "rules"
+        ],
+        "extensions": [
+          ".rules",
+          ".rule"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "cosmoteer-rules",
+        "scopeName": "source.cosmoteer-rules",
+        "path": "./syntaxes/cosmoteer-rules.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "cosmoteerRules.openCustomWords",
+        "title": "Cosmoteer Rules: Open Custom Words File"
+      },
+      {
+        "command": "cosmoteerRules.openTextMateSettings",
+        "title": "Cosmoteer Rules: Open TextMate Color Settings"
+      },
+      {
+        "command": "cosmoteerRules.resetTextMateColors",
+        "title": "Cosmoteer Rules: Reset TextMate Colors"
+      }
+    ]
+  },
+  "main": "./extension.js",
+  "activationEvents": [
+    "onLanguage:cosmoteer-rules",
+    "onCommand:cosmoteerRules.openCustomWords",
+    "onCommand:cosmoteerRules.openTextMateSettings",
+    "onCommand:cosmoteerRules.resetTextMateColors"
+  ]
+}
