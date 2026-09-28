@@ -2,7 +2,7 @@
   "name": "cosmoteer-rules-language",
   "displayName": "Cosmoteer Rules Language",
   "description": "Cosmoteer .rules/.rule language mode with syntax highlighting plus editable custom-word and TextMate color configuration files.",
-  "version": "2.4.2",
+  "version": "2.4.3",
   "publisher": "zahran",
   "license": "MIT",
   "engines": {
@@ -47,7 +47,43 @@
         "command": "cosmoteerRules.resetTextMateColors",
         "title": "Cosmoteer Rules: Reset TextMate Colors"
       }
-    ]
+    ],
+    "configurationDefaults": {
+      "[cosmoteer-rules]": {
+        "editor.tokenColorCustomizations": {
+          "textMateRules": [
+            {
+              "scope": "keyword.control.cosmoteer-rules",
+              "settings": {
+                "foreground": "#FF79B0",
+                "fontStyle": "bold"
+              }
+            },
+            {
+              "scope": "keyword.control.comment.cosmoteer-rules",
+              "settings": {
+                "foreground": "#FF79B0",
+                "fontStyle": "bold"
+              }
+            },
+            {
+              "scope": "variable.other.constant.cosmoteer-rules",
+              "settings": {
+                "foreground": "#E0B7FF",
+                "fontStyle": ""
+              }
+            },
+            {
+              "scope": "variable.other.constant.comment.cosmoteer-rules",
+              "settings": {
+                "foreground": "#E0B7FF",
+                "fontStyle": ""
+              }
+            }
+          ]
+        }
+      }
+    }
   },
   "main": "./extension.js",
   "activationEvents": [
