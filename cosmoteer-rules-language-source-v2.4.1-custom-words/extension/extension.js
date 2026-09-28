@@ -167,14 +167,9 @@ function loadEntries() {
       kind: 'builtin'
     });
 
-    result.push({
-      words: ['Overclock', 'Overclocking', 'OVERCLOCK', 'OVERCLOCKING'],
-      nonComment: { color: '#E0B7FF', fontStyle: '' },
-      comment: { color: '#E0B7FF', fontStyle: '' },
-      caseInsensitive: true,
-      kind: 'builtin'
-    });
-
+    // Overclock is intentionally not decorated here. Its TextMate scope
+    // (variable.other.constant.cosmoteer-rules) must remain user-overridable
+    // through editor.tokenColorCustomizations.
     return result;
   } catch (error) {
     vscode.window.showErrorMessage(
