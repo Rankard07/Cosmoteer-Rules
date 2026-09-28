@@ -19,7 +19,7 @@ jobs:
           PY
           )
           WORK="build/cosmoteer-rules"
-          mkdir -p "$WORK/extension/syntaxes"
+          mkdir -p "$WORK/extension/syntaxes" dist
           cp "$SRC/package.json" "$WORK/extension/"
           cp "$SRC/extension.js" "$WORK/extension/"
           cp "$SRC/language-configuration.json" "$WORK/extension/"
@@ -34,25 +34,20 @@ jobs:
             <Default Extension="js" ContentType="application/javascript" />
             <Default Extension="xml" ContentType="application/xml" />
             <Default Extension="vsixmanifest" ContentType="text/xml" />
-            <Default Extension="txt" ContentType="text/plain" />
           </Types>
           XML
           cat > "$WORK/extension.vsixmanifest" <<XML
           <?xml version="1.0" encoding="utf-8"?>
-          <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:vs="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:json="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
             <Metadata>
               <Identity Language="en-US" Id="cosmoteer-rules-language" Version="$VERSION" Publisher="zahran" />
               <DisplayName>Cosmoteer Rules Language</DisplayName>
               <Description xml:space="preserve">Cosmoteer .rules/.rule language mode with syntax highlighting plus editable custom-word and TextMate color configuration files.</Description>
               <Tags>cosmoteer,rules</Tags>
               <Categories>Programming Languages</Categories>
-              <Properties>
-                <Property Id="Microsoft.VisualStudio.Code.Engine" Value=">=1.85.0" />
-              </Properties>
+              <Properties><Property Id="Microsoft.VisualStudio.Code.Engine" Value=">=1.85.0" /></Properties>
             </Metadata>
-            <Installation>
-              <InstallationTarget Id="Microsoft.VisualStudio.Code" />
-            </Installation>
+            <Installation><InstallationTarget Id="Microsoft.VisualStudio.Code" /></Installation>
             <Dependencies />
             <Assets>
               <Asset Type="Microsoft.VisualStudio.Code.Manifest" Path="extension/package.json" />
@@ -60,9 +55,8 @@ jobs:
             </Assets>
           </PackageManifest>
           XML
-          mkdir -p dist
-          (cd "$WORK" && zip -qr "dist/cosmoteer-rules-language-v$VERSION.zip" extension)
-          (cd "$WORK" && zip -qr "dist/cosmoteer-rules-language-v$VERSION.vsix" '[Content_Types].xml' extension.vsixmanifest extension)
+          (cd "$WORK" && zip -qr "../../dist/cosmoteer-rules-language-v$VERSION.zip" extension)
+          (cd "$WORK" && zip -qr "../../dist/cosmoteer-rules-language-v$VERSION.vsix" '[Content_Types].xml' extension.vsixmanifest extension)
       - uses: actions/upload-artifact@v4
         with:
           name: cosmoteer-rules-language-v2.4.2
