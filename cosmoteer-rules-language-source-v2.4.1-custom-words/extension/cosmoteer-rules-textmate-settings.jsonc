@@ -68,7 +68,7 @@
       // Example: OVERCLOCK
       {
         "scope": "variable.other.constant.cosmoteer-rules",
-        "settings": { "foreground": "#61C4E8", "fontStyle": "bold" }
+        "settings": { "foreground": "#E0B7FF", "fontStyle": "" }
       },
 
       // Named syntax / type:
