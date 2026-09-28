@@ -65,9 +65,15 @@
 
       // Uppercase constants / identifiers:
       //   variable.other.constant.cosmoteer-rules
-      // Example: OVERCLOCK
+      //   variable.other.constant.comment.cosmoteer-rules
+      // Example: Overclock / OVERCLOCK
+      //
+      // Explicit override for Overclock both outside and inside comments.
       {
-        "scope": "variable.other.constant.cosmoteer-rules",
+        "scope": [
+          "variable.other.constant.cosmoteer-rules",
+          "variable.other.constant.comment.cosmoteer-rules"
+        ],
         "settings": { "foreground": "#E0B7FF", "fontStyle": "" }
       },
 
@@ -250,7 +256,11 @@
       // ACTION / CONTROL WORDS
       // ------------------------------------------------------------
       // Action keywords are explicitly pink both outside and inside comments.
-      // This keeps Action, ACTION, Add, AddTo, etc. visually distinct from operators.
+      // The grammar assigns all of these words the same dedicated TextMate scopes:
+      // Add, AddTo, Remove, RemoveFrom, Override, Overrides, OverrideIn,
+      // CreateIfNotExisting, IgnoreIfNotExisting, Action, Actions.
+      // Matching is case-insensitive, so ACTION, ADD, ADDTO, etc. are covered too.
+      // These scope overrides prevent fallback to the active theme's keyword.control color.
       {
         "scope": "keyword.control.cosmoteer-rules",
         "settings": { "foreground": "#FF79B0", "fontStyle": "bold" }
