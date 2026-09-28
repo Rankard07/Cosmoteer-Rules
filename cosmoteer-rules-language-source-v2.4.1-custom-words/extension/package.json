@@ -2,7 +2,7 @@
   "name": "cosmoteer-rules-language",
   "displayName": "Cosmoteer Rules Language",
   "description": "Cosmoteer .rules/.rule language mode with syntax highlighting plus editable custom-word and TextMate color configuration files.",
-  "version": "2.4.4",
+  "version": "2.4.5",
   "publisher": "zahran",
   "license": "MIT",
   "engines": {
