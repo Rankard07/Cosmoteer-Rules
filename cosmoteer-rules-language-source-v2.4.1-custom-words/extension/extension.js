@@ -169,8 +169,8 @@ function loadEntries() {
 
     result.push({
       words: ['Overclock', 'Overclocking', 'OVERCLOCK', 'OVERCLOCKING'],
-      nonComment: { color: '#61C4E8', fontStyle: 'bold' },
-      comment: { color: '#61C4E8', fontStyle: 'bold' },
+      nonComment: { color: '#E0B7FF', fontStyle: '' },
+      comment: { color: '#E0B7FF', fontStyle: '' },
       caseInsensitive: true,
       kind: 'builtin'
     });
